@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Tabla</title>
+</head>
+<body>
+    <button onclick="crearTabla()">Crear Tabla</button>
+
+    <div id="contenedorTabla"></div>
+
+    <script>
+        function crearTabla() {
+            // Solicitar número de filas y columnas al usuario
+            let filas = prompt("Ingrese el número de filas:");
+            let columnas = prompt("Ingrese el número de columnas:");
+
+            // Convertir inputs a números enteros
+            filas = parseInt(filas);
+            columnas = parseInt(columnas);
+
+            // Crear tabla
+            let tabla = document.createElement("table");
+            tabla.border = 1; // Agregar borde a la tabla
+
+            // Agregar filas y columnas
+            for (let i = 0; i < filas; i++) {
+                let fila = tabla.insertRow(i);
+                for (let j = 0; j < columnas; j++) {
+                    let celda = fila.insertCell(j);
+                    celda.innerHTML = `Celda ${i + 1},${j + 1}`;
+                }
+            }
+
+            // Agregar tabla al documento
+            document.getElementById("contenedorTabla").appendChild(tabla);
+        }
+    </script>
+</body>
+</html>
