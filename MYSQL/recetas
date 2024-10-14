@@ -1,0 +1,35 @@
+CREATE DATABASE recetas;
+
+USE recetas;
+
+CREATE TABLE usuarios (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50),
+  apellido VARCHAR(50),
+  email VARCHAR(100) UNIQUE,
+  contraseña VARCHAR(255),
+  fecha_nacimiento DATE
+);
+
+CREATE TABLE recetas (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  titulo VARCHAR(100),
+  descripcion TEXT,
+  ingredientes TEXT,
+  instrucciones TEXT,
+  fecha_publicacion DATE,
+  id_usuario INT,
+  FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+);
+
+INSERT INTO usuarios (nombre, apellido, email, contraseña, fecha_nacimiento)
+VALUES
+  ('Luis', 'lopez', 'luislopez@example.com', 'password123', '1990-01-01'),
+  ('María', 'Gómez', 'maria@example.com', 'password456', '1992-06-15');
+
+INSERT INTO recetas (titulo, descripcion, ingredientes, instrucciones, fecha_publicacion, id_usuario)
+VALUES
+  ('Tortilla de patatas', 'Receta clásica española', 'Patatas, cebolla, huevos', 'Cocinar patatas y cebolla, mezclar con huevos', '2022-01-01', 1),
+  ('Sopa de tomate', 'Receta fácil y saludable', 'Tomates, cebolla, caldo', 'Cocinar tomates y cebolla, agregar caldo', '2022-02-01', 2);
+  
+  SELECT * FROM recetas
