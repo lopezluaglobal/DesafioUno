@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar número más grande</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #resultado {
+      font-weight: bold;
+      color: #00698f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Buscar número más grande</h1>
+  <form>
+    <label for="arreglo">Ingrese el arreglo (separado por comas):</label>
+    <input type="text" id="arreglo" required>
+    <br><br>
+    <label for="indice">Ingrese el índice hasta el cual buscar:</label>
+    <input type="number" id="indice" required>
+    <br><br>
+    <button onclick="buscarMayor()">Buscar</button>
+  </form>
+  <p id="resultado"></p>
+
+  <script src="buscarMayor.js"></script>
+</body>
+</html>
